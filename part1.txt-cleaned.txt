@@ -1,0 +1,674 @@
+Script started on Tue 15 Dec 2020 03:22:28 PM EST
+[cent@localhost ~]$ pwd
+/home/cent
+[cent@localhost ~]$ mkdir Sales
+[cent@localhost ~]$ mkdir Eng
+[cent@localhost ~]$ mkdir IS
+[cent@localhost ~]$ ls
+bin  Eng  IS  repos  Sales  test  test-cleaned.txt
+[cent@localhost ~]$ groupadddEng
+groupadd: Permission denied.
+groupadd: cannot lock /etc/group; try again later.
+[cent@localhost ~]$ sudo groupadd Eng
+[sudo] password for cent:
+[cent@localhost ~]$ sudo groupadd ISg
+[cent@localhost ~]$ sudo groupadd Sales
+[cent@localhost ~]$ groupadd --help
+Usage: groupadd [options] GROUP
+
+Options:
+  -f, --force			exit successfully if the group already exists,
+				and cancel -g if the GID is already used
+  -g, --gid GID			use GID for the new group
+  -h, --help			display this help message and exit
+  -K, --key KEY=VALUE		override /etc/login.defs defaults
+  -o, --non-unique		allow to create groups with duplicate
+				(non-unique) GID
+  -p, --password PASSWORD	use this encrypted password for the new group
+  -r, --system			create a system account
+  -R, --root CHROOT_DIR		directory to chroot into
+  -P, --prefix PREFIX_DIR	directory prefix
+
+[cent@localhost ~]$ man groupadd
+GROUPADD(8)			    System Management Commands			      GROUPADD(8)
+
+NAME
+       groupadd - create a new group
+
+SYNOPSIS
+       groupadd [options] group
+
+DESCRIPTION
+       The groupadd command creates a new group account using the values specified on the command
+       line plus the default values from the system. The new group will be entered into the
+       system files as needed.
+
+OPTIONS
+       The options which apply to the groupadd command are:
+
+       -f, --force
+	   This option causes the command to simply exit with success status if the specified
+	   group already exists. When used with -g, and the specified GID already exists, another
+	   (unique) GID is chosen (i.e.	 -g is turned off).
+
+       -g, --gid GID
+	   The numerical value of the group's ID. This value must be unique, unless the -o option
+	   is used. The value must be non-negative. The default is to use the smallest ID value
+	   greater than or equal to GID_MIN and greater than every other group.
+
+	   See also the -r option and the GID_MAX description.
+
+       -h, --help
+	   Display help message and exit.
+
+       -K, --key KEY=VALUE
+	   Overrides /etc/login.defs defaults (GID_MIN, GID_MAX and others). Multiple -K options
+	   can be specified.
+
+	   Example: -K GID_MIN=100  -K GID_MAX=499
+ ESC[Bl page groupadd(8) line 1 (press h for help or q to quit)
+ ESC[Bl pagNote:u-KdGID_MIN=10,GID_MAX=499odoesn'toworktyet.it)
+ ESC[Bl page groupadd(8) line 5 (press h for help or q to quit)
+ ESC[Bl-o,g--non-unique) line 6 (press h for help or q to quit)
+ ESC[Bl pagThisooption8permits7topaddsahgrouphwithoa non-unique GID.
+ ESC[Bl page groupadd(8) line 8 (press h for help or q to quit)
+ ESC[Bl-p,g--password(PASSWORD9 (press h for help or q to quit)
+ ESC[Bl pagTherencrypted password,passreturnedhbypcrypt(3).qThe)default is to disable the
+ ESC[Bl pagpassword.d(8) line 11 (press h for help or q to quit)
+ ESC[Bl page groupadd(8) line 12 (press h for help or q to quit)
+ ESC[Bl pagNote:uThis(optioneis3notrrecommendedebecause theqpassword (or encrypted password) will
+ ESC[Allineeplusutheddefaultevaluesrfromhthersystem.rThetnewugroup will be entered into the
+ ESC[AlTheggroupadddcommandncreatesrasnew groupeaccount usingithe values specified on the command
+DESCRIPTIONe groupadd(8) line 12 (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 11 (press h for help or q to quit)
+ ESC[Algroupaddo[options]lgroup0 (press h for help or q to quit)
+SYNOPSISpage groupadd(8) line 9 (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 8 (press h for help or q to quit)
+ ESC[Algroupaddo-pcreate ainew7groupss h for help or q to quit)
+NAME[Al page groupadd(8) line 6 (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 5 (press h for help or q to quit)
+GROUPADD(8)e groupadd(8) line 4 (preSystemoManagementqCommands)			      GROUPADD(8)
+ ESC[Bl page groupadd(8) line 1 (press h for help or q to quit)
+ ESC[Bl pagNote:u-KdGID_MIN=10,GID_MAX=499odoesn'toworktyet.it)
+ ESC[Bl page groupadd(8) line 5 (press h for help or q to quit)
+ ESC[Bl-o,g--non-unique) line 6 (press h for help or q to quit)
+ ESC[Bl pagThisooption8permits7topaddsahgrouphwithoa non-unique GID.
+ ESC[Bl page groupadd(8) line 8 (press h for help or q to quit)
+ ESC[Bl-p,g--password(PASSWORD9 (press h for help or q to quit)
+ ESC[Bl pagTherencrypted password,passreturnedhbypcrypt(3).qThe)default is to disable the
+ ESC[Bl pagpassword.d(8) line 11 (press h for help or q to quit)
+ ESC[Bl page groupadd(8) line 12 (press h for help or q to quit)
+ ESC[Bl pagNote:uThis(optioneis3notrrecommendedebecause theqpassword (or encrypted password) will
+ ESC[Bl pagbegvisible(by users1listingsthefprocesses. q to quit)
+ ESC[Bl page groupadd(8) line 15 (press h for help or q to quit)
+ ESC[Bl pagYourshould(makeisure6therpasswordrrespects theosystem's password policy.
+ ESC[Bl page groupadd(8) line 17 (press h for help or q to quit)
+ ESC[Bl-r,g--systemdd(8) line 18 (press h for help or q to quit)
+ ESC[Bl pagCreatepadsystemigroup.(press h for help or q to quit)
+ ESC[Bl page groupadd(8) line 20 (press h for help or q to quit)
+ ESC[Bl pagThernumeric8identifierspofsnew systemlgroups areqchosen in the SYS_GID_MIN-SYS_GID_MAX
+ ESC[Bl pagrange,pdefinedlinelogin.defs,hinsteadlofoGID_MIN-GID_MAX.
+ ESC[Bl page groupadd(8) line 23 (press h for help or q to quit)
+ ESC[Bl-R,g--rootpCHROOT_DIRe 24 (press h for help or q to quit)
+ ESC[Bl pagApplyuchanges innthe5CHROOT_DIRfdirectoryrandtuseuthe configuration files from the
+ ESC[Bl pagCHROOT_DIR(directory. (press h for help or q to quit)
+ ESC[Bl page groupadd(8) line 27 (press h for help or q to quit)
+ ESC[Bl-P,g--prefixdPREFIX_DIR28 (press h for help or q to quit)
+ ESC[Bl pagApplyuchanges innthe9PREFIX_DIRfdirectoryrandtuseuthe configuration files from the
+ ESC[Bl pagPREFIX_DIR(directory. Thissoptionrdoespnot chrootuand is intended for preparing a
+ ESC[Bl pagcross-compilationetarget.eSome limitations:qNIS andtLDAP users/groups are not
+ ESC[Bl pagverified.dPAM authentication isfusingltherhostofiles. No SELINUX support.
+ ESC[Bl page groupadd(8) line 33 (press h for help or q to quit)
+CONFIGURATIONgroupadd(8) line 34 (press h for help or q to quit)
+ ESC[BlThegfollowingdconfigurationpvariablesrine/etc/login.defs)change the behavior of this tool:
+ ESC[Bl page groupadd(8) line 36 (press h for help or q to quit)
+ ESC[BlGID_MAXr(number), GID_MIN (number) for help or q to quit)
+ ESC[Bl pagRangeuofdgrouplIDs usedpforsthefcreationoofqregulartgroups by useradd, groupadd, or
+ ESC[Bl pagnewusers.d(8) line 39 (press h for help or q to quit)
+ ESC[Bl page groupadd(8) line 40 (press h for help or q to quit)
+ ESC[Bl pagTherdefault8valueefor GID_MINh(resp.elGID_MAX)oisu1000 (resp. 60000).
+ ESC[Bl page groupadd(8) line 42 (press h for help or q to quit)
+ ESC[BlMAX_MEMBERS_PER_GROUPe(number)ss h for help or q to quit)
+ ESC[Bl pagMaximumamembersiper4groupeentry.oWhenlthermaximumuis)reached, a new group entry (line)
+ ESC[Bl pagisgstarted(in /etc/groupr(with the same name,tsameipassword, and same GID).
+ ESC[Bl page groupadd(8) line 46 (press h for help or q to quit)
+ ESC[Bl pagTherdefault8valueeis70,pmeaningfthatethere areonoulimits in the number of members in a
+ ESC[Bl paggroup.padd(8) line 48 (press h for help or q to quit)
+ ESC[Bl page groupadd(8) line 49 (press h for help or q to quit)
+ ESC[Bl pagThisofeature)(split5group)spermits tollimitqthe length of lines in the group file.
+ ESC[Bl pagThisoisausefulltoemake(suresthatolinespfor NISogroups are not larger than 1024
+ ESC[Bl pagcharacters.8) line 52 (press h for help or q to quit)
+ ESC[Bl page groupadd(8) line 53 (press h for help or q to quit)
+ ESC[Bl pagIfgyoupneed8tolenforce(suchslimit, youpcan useo25.it)
+ ESC[Bl page groupadd(8) line 55 (press h for help or q to quit)
+ ESC[Bl pagNote:usplit8groups may(notsbehsupported by allotools)(even in the Shadow toolsuite).
+ ESC[Bl pagYourshould(notluse thispvariableounless youqreallyineed it.
+ ESC[Bl page groupadd(8) line 58 (press h for help or q to quit)
+ ESC[BlSYS_GID_MAXa(number),eSYS_GID_MINh(number)p or q to quit)
+ ESC[Bl pagRangeuofdgrouplIDs usedpforsthefcreationoofqsystemigroups by useradd, groupadd, or
+ ESC[Bl pagnewusers.d(8) line 61 (press h for help or q to quit)
+ ESC[Bl page groupadd(8) line 62 (press h for help or q to quit)
+ ESC[Bl pagTherdefault8valueefor SYS_GID_MINr(resp.orSYS_GID_MAX) is 101 (resp.	 GID_MIN-1).
+ ESC[Bl page groupadd(8) line 64 (press h for help or q to quit)
+FILESBl page groupadd(8) line 65 (press h for help or q to quit)
+ ESC[Bl/etc/grouppadd(8) line 66 (press h for help or q to quit)
+ ESC[Bl pagGroupuaccount information.ss h for help or q to quit)
+ ESC[Bl page groupadd(8) line 68 (press h for help or q to quit)
+ ESC[Bl/etc/gshadowdd(8) line 69 (press h for help or q to quit)
+ ESC[Bl pagSecurepgroup)account0information.r help or q to quit)
+ ESC[Bl page groupadd(8) line 71 (press h for help or q to quit)
+ ESC[Bl/etc/login.defs8) line 72 (press h for help or q to quit)
+ ESC[Bl pagShadowppasswordisuite configuration.elp or q to quit)
+ ESC[Bl page groupadd(8) line 74 (press h for help or q to quit)
+CAVEATS page groupadd(8) line 75 (press h for help or q to quit)
+ ESC[BlGroupnamespmay(contain onlyplowerhandrupper case letters, digits, underscores, or dashes.
+ ESC[BlTheyecanoenddwith aidollar(sign. Dasheshare notqallowedtat the beginning of the groupname.
+ ESC[BlFully numericdgroupnames8andrgroupnamesh.loro..qare also)disallowed. In regular expression
+ ESC[Blterms:g[a-zA-Z0-9_.][a-zA-Z0-9_.-]*[$]?help or q to quit)
+ ESC[Bl page groupadd(8) line 80 (press h for help or q to quit)
+ ESC[BlGroupnamespmay(onlyibe up tor32scharactersplong. to quit)
+ ESC[Bl page groupadd(8) line 82 (press h for help or q to quit)
+ ESC[BlYougmayrnotaadd8a NISeor3LDAPegroup.oThislmust betperformed on the corresponding server.
+ ESC[Bl page groupadd(8) line 84 (press h for help or q to quit)
+ ESC[BlIfatheggroupname)already5existssin anrexternal groupqdatabase such as NIS or LDAP,
+ ESC[Blgroupaddowillddenylthe grouprcreationrrequest. q to quit)
+ ESC[Bl page groupadd(8) line 87 (press h for help or q to quit)
+EXIT[VALUESe groupadd(8) line 88 (press h for help or q to quit)
+ ESC[BlTheggroupadddcommandnexits(withstheffollowingrvalues:uit)
+ ESC[Bl page groupadd(8) line 90 (press h for help or q to quit)
+ ESC[Bl0page groupadd(8) line 91 (press h for help or q to quit)
+ ESC[Bl pagsuccessadd(8) line 92 (press h for help or q to quit)
+ ESC[Bl page groupadd(8) line 93 (press h for help or q to quit)
+ ESC[Bl2page groupadd(8) line 94 (press h for help or q to quit)
+ ESC[Bl paginvalidacommandisyntax(press h for help or q to quit)
+ ESC[Bl page groupadd(8) line 96 (press h for help or q to quit)
+ ESC[Bl3page groupadd(8) line 97 (press h for help or q to quit)
+ ESC[Bl paginvalidaargumentnto9optionss h for help or q to quit)
+ ESC[Bl page groupadd(8) line 99 (press h for help or q to quit)
+ ESC[Bl4page groupadd(8) line 100 (press h for help or q to quit)
+ ESC[Bl pagGIDrnotauniquel(when0-o(notsused)or help or q to quit)
+ ESC[Bl page groupadd(8) line 102 (press h for help or q to quit)
+ ESC[Bl9page groupadd(8) line 103 (press h for help or q to quit)
+ ESC[Bl paggroupuname(notlunique4 (press h for help or q to quit)
+ ESC[Bl page groupadd(8) line 105 (press h for help or q to quit)
+ ESC[Bl10age groupadd(8) line 106 (press h for help or q to quit)
+ ESC[Bl pagcan'tuupdate)group file(press h for help or q to quit)
+ ESC[Bl page groupadd(8) line 108 (press h for help or q to quit)
+SEECALSOpage groupadd(8) line 109 (press h for help or q to quit)
+ ESC[Blchfn(1),ochsh(1), passwd(1),pgpasswd(8),hgroupdel(8),qgroupmod(8), login.defs(5),
+ ESC[Bluseradd(8),auserdel(8),1usermod(8). for help or q to quit)
+ ESC[Bl page groupadd(8) line 112 (press h for help or q to quit)
+shadow-utils 4.6upadd(8) line 113 (press h f08/09/2019 q to quit)		      GROUPADD(8)
+ ESC[AlTheyecanoenddwith aidollar/sign.EDashesrarepnotoallowedoatqthe beginning of the groupname.
+ ESC[AlGroupnamespmay(contain only1lower%andrupper casehletters, digits,)underscores, or dashes.
+CAVEATS page groupadd(8) line 112/151 99% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 111/151 97% (press h for help or q to quit)
+ ESC[Al pagShadowppasswordisuite0configuration.s h for help or q to quit)
+ ESC[Al/etc/login.defs8) line 109/151 94% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 108/151 94% (press h for help or q to quit)
+ ESC[Al pagSecurepgroup)account0information.ress h for help or q to quit)
+ ESC[Al/etc/gshadowdd(8) line 106/151 93% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 105/151 93% (press h for help or q to quit)
+ ESC[Al pagGroupuaccount information. 93% (press h for help or q to quit)
+ ESC[Al/etc/grouppadd(8) line 103/151 93% (press h for help or q to quit)
+FILESAl page groupadd(8) line 102/151 93% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 101/151 92% (press h for help or q to quit)
+ ESC[Al pagTherdefault8valueefor0SYS_GID_MINr(resp.foSYS_GID_MAX)tisq101)(resp.	 GID_MIN-1).
+ ESC[Al page groupadd(8) line 99/151 92% (press h for help or q to quit)
+ ESC[Al pagnewusers.d(8) line 98/151 91% (press h for help or q to quit)
+ ESC[Al pagRangeuofdgrouplIDs used5for1thepcreationoofhsystem groupsuby)useradd, groupadd, or
+ ESC[AlSYS_GID_MAXa(number),eSYS_GID_MIN (number) for help or q to quit)
+ ESC[Al page groupadd(8) line 95/151 91% (press h for help or q to quit)
+ ESC[Al pagYourshould(notluse this5variablerunlessfyouhreally need it.t)
+ ESC[Al pagNote:usplit8groups may1not9be supportedfby allptools (eveniin the Shadow toolsuite).
+ ESC[Al page groupadd(8) line 92/151 90% (press h for help or q to quit)
+ ESC[Al pagIfgyoupneed8tolenforce1such0limit,syou can usep25. q to quit)
+ ESC[Al page groupadd(8) line 90/151 90% (press h for help or q to quit)
+ ESC[Al pagcharacters.8) line 89/151 89% (press h for help or q to quit)
+ ESC[Al pagThisoisausefulltoemake1sure8thatrlines for NISpgroupstareunot larger than 1024
+ ESC[Al pagThisofeature)(split8group)8permitsstohlimiththe lengthoofulines in the group file.
+ ESC[Al page groupadd(8) line 86/151 87% (press h for help or q to quit)
+ ESC[Al paggroup.padd(8) line 85/151 86% (press h for help or q to quit)
+ ESC[Al pagTherdefault8valueeis40,5meaningpthat there arepnorlimitsqintthe number of members in a
+ ESC[Al page groupadd(8) line 83/151 85% (press h for help or q to quit)
+ ESC[Al pagisgstarted(in /etc/group1(with(thessamefname,lsame password,)and same GID).
+ ESC[Al pagMaximumamembersiper8group entry.rWhenhthermaximumris reached, a new group entry (line)
+ ESC[AlMAX_MEMBERS_PER_GROUPe(number)84% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 79/151 83% (press h for help or q to quit)
+ ESC[Al pagTherdefault8valueefor/GID_MIN (resp. hGID_MAX)pisr1000o(resp. 60000).
+ ESC[Al page groupadd(8) line 77/151 80% (press h for help or q to quit)
+ ESC[Al pagnewusers.d(8) line 76/151 79% (press h for help or q to quit)
+ ESC[Al pagRangeuofdgrouplIDs used5for8thepcreationoofhregularqgroupsiby useradd, groupadd, or
+ ESC[AlGID_MAXr(number), GID_MIN/(number)(press h for help or q to quit)
+ ESC[Al page groupadd(8) line 73/151 78% (press h for help or q to quit)
+ ESC[AlThegfollowingdconfiguration5variablesein /etc/login.defs changetthe behavior of this tool:
+CONFIGURATIONgroupadd(8) line 71/151 77% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 70/151 77% (press h for help or q to quit)
+ ESC[Al pagverified.dPAM authentication%ispusinghtherhostpfiles.tNoqSELINUX support.
+ ESC[Al pagcross-compilationetarget. Some(limitations:hNIS andqLDAPqusers/groups are not
+ ESC[Al pagPREFIX_DIR(directory./This7optionedoes not chrootrandtisqintended for preparing a
+ ESC[Al pagApplyuchanges innthe6PREFIX_DIRpdirectoryrandluserthetconfiguration files from the
+ ESC[Al-P,g--prefixdPREFIX_DIR65/151 75% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 64/151 75% (press h for help or q to quit)
+ ESC[Al pagCHROOT_DIR(directory./151 73% (press h for help or q to quit)
+ ESC[Al pagApplyuchanges innthe2CHROOT_DIRpdirectoryrandluserthetconfiguration files from the
+ ESC[Al-R,g--rootpCHROOT_DIRe 61/151 72% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 60/151 71% (press h for help or q to quit)
+ ESC[Al pagrange,pdefinedlinelogin.defs, insteadhofoGID_MIN-GID_MAX.uit)
+ ESC[Al pagThernumeric8identifiers5of6new(systemhgroupseareochosen inithe SYS_GID_MIN-SYS_GID_MAX
+ ESC[Al page groupadd(8) line 57/151 68% (press h for help or q to quit)
+ ESC[Al pagCreatepadsystemigroup.151 67% (press h for help or q to quit)
+ ESC[Al-r,g--systemdd(8) line 55/151 67% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 54/151 66% (press h for help or q to quit)
+ ESC[Al pagYourshould(makeisure3the1passworderespects thepsystem's password policy.
+ ESC[Al page groupadd(8) line 52/151 66% (press h for help or q to quit)
+ ESC[Al pagbegvisible(by users5listing4thepprocesses. help or q to quit)
+ ESC[Al pagNote:uThis(optioneis0not1recommended becauseetheopasswordu(or encrypted password) will
+ ESC[Al page groupadd(8) line 49/151 63% (press h for help or q to quit)
+ ESC[Al pagpassword.d(8) line 48/151 63% (press h for help or q to quit)
+ ESC[Al pagTherencrypted password,5as6returnedsby crypt(3).oThe default)is to disable the
+ ESC[Al-p,g--password(PASSWORD46/151 61% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 45/151 60% (press h for help or q to quit)
+ ESC[Al pagThisooption8permits4to1add5a%groupswithfarnon-unique GID.uit)
+ ESC[Al-o,g--non-unique) line 43/151 57% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 42/151 57% (press h for help or q to quit)
+ ESC[Al pagNote:u-KdGID_MIN=10,GID_MAX=499pdoesn'tfworkeyet.r q to quit)
+ ESC[Al page groupadd(8) line 40/151 55% (press h for help or q to quit)
+ ESC[Al pagExample:d-K8GID_MIN=10051-K5GID_MAX=499for help or q to quit)
+ ESC[Al page groupadd(8) line 38/151 53% (press h for help or q to quit)
+ ESC[Al pagcanrbepspecified.e 37/151 52% (press h for help or q to quit)
+ ESC[Al pagOverridesd/etc/login.defs defaultss(GID_MIN,eGID_MAX andqothers). Multiple -K options
+ ESC[Al-K,g--keyuKEY=VALUEine 35/151 51% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 34/151 50% (press h for help or q to quit)
+ ESC[Al pagDisplayahelp)message3and1exit.(press h for help or q to quit)
+ ESC[Al-h,g--helppadd(8) line 32/151 49% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 31/151 47% (press h for help or q to quit)
+ ESC[Al pagSeeralsodthe)-rioption1and4the(GID_MAX description.q to quit)
+ ESC[Al page groupadd(8) line 29/151 44% (press h for help or q to quit)
+ ESC[Al paggreaterathan)oriequal/to1GID_MINrand greaterethanrevery other group.
+ ESC[Al pagisgused.dThe)value must5be4non-negative.oTheedefault is toiuse the smallest ID value
+ ESC[Al pagThernumerical value2of1the4group'ssID. Thishvaluermustobeuunique, unless the -o option
+ ESC[Al-g,g--giduGIDd(8) line 25/151 41% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 24/151 40% (press h for help or q to quit)
+ ESC[Al pag(unique)dGID)isichosen1(i.e.% -grissturned off).or q to quit)
+ ESC[Al paggroupualready exists./When3usedpwith -g,oandetheospecifiediGID already exists, another
+ ESC[Al pagThisooption8causes the1command(toesimplyoexitlwith successistatus if the specified
+ ESC[Al-f,g--forceadd(8) line 20/151 36% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 19/151 36% (press h for help or q to quit)
+ ESC[AlThegoptionsawhich apply1to1the3groupaddscommandhare:or q to quit)
+OPTIONS page groupadd(8) line 17/151 35% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 16/151 34% (press h for help or q to quit)
+ ESC[Alsystemgfilesdas8needed.15/151 34% (press h for help or q to quit)
+ ESC[Allineeplusutheddefaultevalues1from theesystem.rThelnewrgroup will)be entered into the
+ ESC[AlTheggroupadddcommandncreates1a3new(group accounteusing theovalues specified on the command
+DESCRIPTIONe groupadd(8) line 12/151 31% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 11/151 31% (press h for help or q to quit)
+ ESC[Algroupaddo[options]lgroup0/151 29% (press h for help or q to quit)
+SYNOPSISpage groupadd(8) line 9/151 28% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 8/151 28% (press h for help or q to quit)
+ ESC[Algroupaddo-pcreate ainew7group27% (press h for help or q to quit)
+NAME[Al page groupadd(8) line 6/151 27% (press h for help or q to quit)
+ ESC[Al page groupadd(8) line 5/151 27% (press h for help or q to quit)
+GROUPADD(8)e groupadd(8) line 4/151 SystemrManagementhCommands to quit)		      GROUPADD(8)
+[cent@localhosto~]$duseraddn--help1 25% (press h for help or q to quit)
+Usage: useradd [options] LOGIN
+       useradd -D
+       useradd -D [options]
+
+Options:
+  -b, --base-dir BASE_DIR	base directory for the home directory of the
+				new account
+  -c, --comment COMMENT		GECOS field of the new account
+  -d, --home-dir HOME_DIR	home directory of the new account
+  -D, --defaults		print or change default useradd configuration
+  -e, --expiredate EXPIRE_DATE	expiration date of the new account
+  -f, --inactive INACTIVE	password inactivity period of the new account
+  -g, --gid GROUP		name or ID of the primary group of the new
+				account
+  -G, --groups GROUPS		list of supplementary groups of the new
+				account
+  -h, --help			display this help message and exit
+  -k, --skel SKEL_DIR		use this alternative skeleton directory
+  -K, --key KEY=VALUE		override /etc/login.defs defaults
+  -l, --no-log-init		do not add the user to the lastlog and
+				faillog databases
+  -m, --create-home		create the user's home directory
+  -M, --no-create-home		do not create the user's home directory
+  -N, --no-user-group		do not create a group with the same name as
+				the user
+  -o, --non-unique		allow to create users with duplicate
+				(non-unique) UID
+  -p, --password PASSWORD	encrypted password of the new account
+  -r, --system			create a system account
+  -R, --root CHROOT_DIR		directory to chroot into
+  -P, --prefix PREFIX_DIR	prefix directory where are located the /etc/* files
+  -s, --shell SHELL		login shell of the new account
+  -u, --uid UID			user ID of the new account
+  -U, --user-group		create a group with the same name as the user
+  -Z, --selinux-user SEUSER	use a specific SEUSER for the SELinux user mapping
+
+[cent@localhost ~]$ sudoauseraddl-da/Eng -s /bin/bash -G Eng Eng1
+[sudo] password for cent:
+[cent@localhost ~]$ sudo useradd -d /Eng -s /bin/bash -G Eng Eng2
+useradd: warning: the home directory already exists.
+Not copying any file from skel directory into it.
+[cent@localhost ~]$ sudo useradd -d /Eng -s /bin/bash -G Eng Eng2
+useradd: user 'Eng2' already exists
+[cent@localhost ~]$ sudo useradd -s /bin/bash -G Eng Eng3
+sudoauseraddl-sn/bin/bashb-G/ISsIS1GEEng1Eng2 -G Eng Eng2
+[cent@localhost ~]$ sudo useradd -s /bin/bash -G IS IS2
+[cent@localhost ~]$ sudo useradd -s /bin/bash -G IS IS3
+[cent@localhost ~]$ sudo useradd -s /bin/bash -G Sales?Sales1
+[cent@localhost ~]$ sudo useradd -s /bin/bash -G Sales Sales2
+[cent@localhost ~]$ sudo useradd -s /bin/bash -G Sales Sales3
+[cent@localhost ~]$ pwd
+/home/cent
+[cent@localhost ~]$ ls
+bin  Eng  IS  repos  Sales  test  test-cleaned.txt
+[cent@localhost ~]$ sudo usermod -h
+Usage: usermod [options] LOGIN
+
+Options:
+  -c, --comment COMMENT		new value of the GECOS field
+  -d, --home HOME_DIR		new home directory for the user account
+  -e, --expiredate EXPIRE_DATE	set account expiration date to EXPIRE_DATE
+  -f, --inactive INACTIVE	set password inactive after expiration
+				to INACTIVE
+  -g, --gid GROUP		force use GROUP as new primary group
+  -G, --groups GROUPS		new list of supplementary GROUPS
+  -a, --append			append the user to the supplemental GROUPS
+				mentioned by the -G option without removing
+				the user from other groups
+  -h, --help			display this help message and exit
+  -l, --login NEW_LOGIN		new value of the login name
+  -L, --lock			lock the user account
+  -m, --move-home		move contents of the home directory to the
+				new location (use only with -d)
+  -o, --non-unique		allow using duplicate (non-unique) UID
+  -p, --password PASSWORD	use encrypted password for the new password
+  -R, --root CHROOT_DIR		directory to chroot into
+  -P, --prefix PREFIX_DIR	prefix directory where are located the /etc/* files
+  -s, --shell SHELL		new login shell for the user account
+  -u, --uid UID			new UID for the user account
+  -U, --unlock			unlock the user account
+  -v, --add-subuids FIRST-LAST	add range of subordinate uids
+  -V, --del-subuids FIRST-LAST	remove range of subordinate uids
+  -w, --add-subgids FIRST-LAST	add range of subordinate gids
+  -W, --del-subgids FIRST-LAST	remove range of subordinate gids
+  -Z, --selinux-user SEUSER	new SELinux user mapping for the user account
+
+[cent@localhost ~]$ sudo usermod -a admin1IS1
+Usage: usermod [options] LOGIN
+
+Options:
+  -c, --comment COMMENT		new value of the GECOS field
+  -d, --home HOME_DIR		new home directory for the user account
+  -e, --expiredate EXPIRE_DATE	set account expiration date to EXPIRE_DATE
+  -f, --inactive INACTIVE	set password inactive after expiration
+				to INACTIVE
+  -g, --gid GROUP		force use GROUP as new primary group
+  -G, --groups GROUPS		new list of supplementary GROUPS
+  -a, --append			append the user to the supplemental GROUPS
+				mentioned by the -G option without removing
+				the user from other groups
+  -h, --help			display this help message and exit
+  -l, --login NEW_LOGIN		new value of the login name
+  -L, --lock			lock the user account
+  -m, --move-home		move contents of the home directory to the
+				new location (use only with -d)
+  -o, --non-unique		allow using duplicate (non-unique) UID
+  -p, --password PASSWORD	use encrypted password for the new password
+  -R, --root CHROOT_DIR		directory to chroot into
+  -P, --prefix PREFIX_DIR	prefix directory where are located the /etc/* files
+  -s, --shell SHELL		new login shell for the user account
+  -u, --uid UID			new UID for the user account
+  -U, --unlock			unlock the user account
+  -v, --add-subuids FIRST-LAST	add range of subordinate uids
+  -V, --del-subuids FIRST-LAST	remove range of subordinate uids
+  -w, --add-subgids FIRST-LAST	add range of subordinate gids
+  -W, --del-subgids FIRST-LAST	remove range of subordinate gids
+  -Z, --selinux-user SEUSER	new SELinux user mapping for the user account
+
+clear@localhost ~]$ sudo usermod -a admin IS1
+[cent@localhost ~]$ sudorusermod -a admin IS1IS1
+Usage: usermod [options] LOGIN
+
+Options:
+  -c, --comment COMMENT		new value of the GECOS field
+  -d, --home HOME_DIR		new home directory for the user account
+  -e, --expiredate EXPIRE_DATE	set account expiration date to EXPIRE_DATE
+  -f, --inactive INACTIVE	set password inactive after expiration
+				to INACTIVE
+  -g, --gid GROUP		force use GROUP as new primary group
+  -G, --groups GROUPS		new list of supplementary GROUPS
+  -a, --append			append the user to the supplemental GROUPS
+				mentioned by the -G option without removing
+				the user from other groups
+  -h, --help			display this help message and exit
+  -l, --login NEW_LOGIN		new value of the login name
+  -L, --lock			lock the user account
+  -m, --move-home		move contents of the home directory to the
+				new location (use only with -d)
+  -o, --non-unique		allow using duplicate (non-unique) UID
+  -p, --password PASSWORD	use encrypted password for the new password
+  -R, --root CHROOT_DIR		directory to chroot into
+  -P, --prefix PREFIX_DIR	prefix directory where are located the /etc/* files
+  -s, --shell SHELL		new login shell for the user account
+  -u, --uid UID			new UID for the user account
+  -U, --unlock			unlock the user account
+  -v, --add-subuids FIRST-LAST	add range of subordinate uids
+  -V, --del-subuids FIRST-LAST	remove range of subordinate uids
+  -w, --add-subgids FIRST-LAST	add range of subordinate gids
+  -W, --del-subgids FIRST-LAST	remove range of subordinate gids
+  -Z, --selinux-user SEUSER	new SELinux user mapping for the user account
+
+[cent@localhost ~]$ clearusermod -a admin IS IS1
+lsearusermodo-a adminuESrIS1rmod -a admin IS IS1
+bin  Eng  IS  repos  Sales  test  test-cleaned.txt
+[cent@localhost ~]$ sudorusermod -a admin Eng1
+Usage: usermod [options] LOGIN
+
+Options:
+  -c, --comment COMMENT		new value of the GECOS field
+  -d, --home HOME_DIR		new home directory for the user account
+  -e, --expiredate EXPIRE_DATE	set account expiration date to EXPIRE_DATE
+  -f, --inactive INACTIVE	set password inactive after expiration
+				to INACTIVE
+  -g, --gid GROUP		force use GROUP as new primary group
+  -G, --groups GROUPS		new list of supplementary GROUPS
+  -a, --append			append the user to the supplemental GROUPS
+				mentioned by the -G option without removing
+				the user from other groups
+  -h, --help			display this help message and exit
+  -l, --login NEW_LOGIN		new value of the login name
+  -L, --lock			lock the user account
+  -m, --move-home		move contents of the home directory to the
+				new location (use only with -d)
+  -o, --non-unique		allow using duplicate (non-unique) UID
+  -p, --password PASSWORD	use encrypted password for the new password
+  -R, --root CHROOT_DIR		directory to chroot into
+  -P, --prefix PREFIX_DIR	prefix directory where are located the /etc/* files
+  -s, --shell SHELL		new login shell for the user account
+  -u, --uid UID			new UID for the user account
+  -U, --unlock			unlock the user account
+  -v, --add-subuids FIRST-LAST	add range of subordinate uids
+  -V, --del-subuids FIRST-LAST	remove range of subordinate uids
+  -w, --add-subgids FIRST-LAST	add range of subordinate gids
+  -W, --del-subgids FIRST-LAST	remove range of subordinate gids
+  -Z, --selinux-user SEUSER	new SELinux user mapping for the user account
+
+[cent@localhost ~]$ groups IS1
+IS1 : IS1 IS
+[cent@localhost ~]$ sudo usermod -G admin IS IS1
+usermod: group 'admin' does not exist
+[cent@localhost ~]$ group -l
+bash: group: command not found
+[cent@localhost ~]$ groups--l
+groups: invalid option -- 'l'
+Try 'groups --help' for more information.
+[cent@localhost ~]$ groups -h
+groups: invalid option -- 'h'
+Try 'groups --help' for more information.
+[cent@localhost ~]$ groups
+cent wheel vboxsf
+[cent@localhost ~]$ ls -l
+total 8
+drwxrwxr-x. 2 cent cent	  21 Dec 15 15:09 bin
+drwxrwxr-x. 2 cent cent	   6 Dec 17 00:28 Eng
+drwxrwxr-x. 2 cent cent	   6 Dec 17 00:28 IS
+drwxrwxr-x. 5 cent cent	  60 Nov 17 19:39 repos
+drwxrwxr-x. 2 cent cent	   6 Dec 17 00:28 Sales
+-rw-rw-r--. 1 cent cent 1148 Dec 15 15:11 test
+-rw-rw-r--. 1 cent cent	 795 Dec 15 15:11 test-cleaned.txt
+[cent@localhost ~]$ sudo chmodgg=rwx-ISadmin -S
+[sudo] password for cent:
+[cent@localhost ~]$ sudo chmod g=rwx Eng
+[cent@localhost ~]$ sudo chmod g=rwx Sales
+[cent@localhost ~]$ ls
+bin  Eng  IS  repos  Sales  test  test-cleaned.txt
+[cent@localhost ~]$ cd /Eng
+bash: cd: /Eng: Permission denied
+[cent@localhost ~]$ cd /IS
+bash: cd: /IS: No such file or directory
+[cent@localhost ~]$ cd /IS
+bash: cd: /IS: No such file or directory
+[cent@localhost ~]$ cd /Sales
+bash: cd: /Sales: No such file or directory
+[cent@localhost ~]$ sudo cd /Sales
+/bin/cd: line 2: cd: /Sales: No such file or directory
+[cent@localhost ~]$ ls
+bin  Eng  IS  repos  Sales  test  test-cleaned.txt
+[cent@localhost ~]$ sudo chmodd770 Eng
+[cent@localhost ~]$ sudo chmod 770 ISg
+[cent@localhost ~]$ sudo chmod 770 Sales
+[cent@localhost ~]$ sudo chown -h0 Sales
+chown: missing operand
+Try 'chown --help' for more information.
+[cent@localhost ~]$ sudo chown --help
+Usage: chown [OPTION]... [OWNER][:[GROUP]] FILE...
+  or:  chown [OPTION]... --reference=RFILE FILE...
+Change the owner and/or group of each FILE to OWNER and/or GROUP.
+With --reference, change the owner and group of each FILE to those of RFILE.
+
+  -c, --changes		 like verbose but report only when a change is made
+  -f, --silent, --quiet	 suppress most error messages
+  -v, --verbose		 output a diagnostic for every file processed
+      --dereference	 affect the referent of each symbolic link (this is
+			 the default), rather than the symbolic link itself
+  -h, --no-dereference	 affect symbolic links instead of any referenced file
+			 (useful only on systems that can change the
+			 ownership of a symlink)
+      --from=CURRENT_OWNER:CURRENT_GROUP
+			 change the owner and/or group of each file only if
+			 its current owner and/or group match those specified
+			 here.	Either may be omitted, in which case a match
+			 is not required for the omitted attribute
+      --no-preserve-root  do not treat '/' specially (the default)
+      --preserve-root	 fail to operate recursively on '/'
+      --reference=RFILE	 use RFILE's owner and group rather than
+			 specifying OWNER:GROUP values
+  -R, --recursive	 operate on files and directories recursively
+
+The following options modify how a hierarchy is traversed when the -R
+option is also specified.  If more than one is specified, only the final
+one takes effect.
+
+  -H			 if a command line argument is a symbolic link
+			 to a directory, traverse it
+  -L			 traverse every symbolic link to a directory
+			 encountered
+  -P			 do not traverse any symbolic links (default)
+
+      --help	 display this help and exit
+      --version	 output version information and exit
+
+Owner is unchanged if missing.	Group is unchanged if missing, but changed
+to login group if implied by a ':' following a symbolic OWNER.
+OWNER and GROUP may be numeric as well as symbolic.
+
+Examples:
+  chown root /u	       Change the owner of /u to "root".
+  chown root:staff /u  Likewise, but also change its group to "staff".
+  chown -hR root /u    Change the owner of /u and subfiles to "root".
+
+GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+For complete documentation, run: info coreutils 'chown invocation'
+[cent@localhost ~]$ sudo chown root:IS /IS
+chown: cannot access ‘/IS’: No such file or directory
+[cent@localhost ~]$ pwd
+/home/cent
+[cent@localhost ~]$ ls
+bin  Eng  IS  repos  Sales  test  test-cleaned.txt
+[cent@localhost ~]$ sudo chown root:IS ISS
+[cent@localhost ~]$ lsd-lchown root:EngIEng
+total 8
+drwxrwxr-x. 2 cent cent	  21 Dec 15 15:09 bin
+drwxrwx---. 2 cent cent	   6 Dec 17 00:28 Eng
+drwxrwx---. 2 root IS	   6 Dec 17 00:28 IS
+drwxrwxr-x. 5 cent cent	  60 Nov 17 19:39 repos
+drwxrwx---. 2 cent cent	   6 Dec 17 00:28 Sales
+-rw-rw-r--. 1 cent cent 1148 Dec 15 15:11 test
+-rw-rw-r--. 1 cent cent	 795 Dec 15 15:11 test-cleaned.txt
+[cent@localhost ~]$ sudolchown root:EngIEng
+[cent@localhost ~]$ sudo chown root:SalesnSales
+lse-l@localhost ~]$ sudo chown root:EngeEngales
+total 8
+drwxrwxr-x. 2 cent cent	   21 Dec 15 15:09 bin
+drwxrwx---. 2 root Eng	    6 Dec 17 00:28 Eng
+drwxrwx---. 2 root IS	    6 Dec 17 00:28 IS
+drwxrwxr-x. 5 cent cent	   60 Nov 17 19:39 repos
+drwxrwx---. 2 root Sales    6 Dec 17 00:28 Sales
+-rw-rw-r--. 1 cent cent	 1148 Dec 15 15:11 test
+-rw-rw-r--. 1 cent cent	  795 Dec 15 15:11 test-cleaned.txt
+[cent@localhost ~]$ su root
+Password:
+[root@localhost cent]# ls
+bin  Eng  IS  repos  Sales  test  test-cleaned.txt
+[root@localhost cent]# cd /Eng
+[root@localhost Eng]# pwd
+/Eng
+[root@localhost Eng]# echo "123"i>Engfile
+[root@localhost Eng]# pwd
+/Eng
+[root@localhost Eng]# ls
+Engfile
+[root@localhost Eng]# vim Engfile
+bash: vim: command not found
+[root@localhost Eng]# vimEngfilee
+"Engfile" 1L, 4C123
+[root@localhost Eng]# cd									    ~													~												    ~													~												    ~													~												    ~													~												    ~													~												    ~													~												    ~													~												    ~													~												    ~													~												    ~													~												    ~													~												    ~													~												    ~													~												    ~													~												    ~													~												    ~													~												    ~													~												    Type  :quit<Enter>	to exit Vim:quiutt
+[root@localhost ~]# ls
+anaconda-ks.cfg
+[root@localhost ~]# pwd
+/root
+[root@localhost ~]# ls
+anaconda-ks.cfg
+[root@localhost ~]# cd /Sales
+bash: cd: /Sales: No such file or directory
+[root@localhost ~]# cd /home/cent
+[root@localhost cent]# ls
+bin  Eng  IS  repos  Sales  test  test-cleaned.txt
+[root@localhost cent]# cd /IS
+bash: cd: /IS: No such file or directory
+[root@localhost cent]# cd IS
+[root@localhost IS]# echoE"123"e>ISfilee
+[root@localhost IS]# cdh/home/centSfile
+[root@localhost cent]# ls
+bin  Eng  IS  repos  Sales  test  test-cleaned.txt
+[root@localhost cent]# cdhSales3"e>ISfile
+[root@localhost Sales]# echoh"123"e>Salesfile
+[root@localhost Sales]# cd ..
+[root@localhost cent]# sudo usermod -G IS IS1
+[root@localhost cent]# sudo usermod -G Sales1Sales1
+[root@localhost cent]# sudo usermod -G EngeEng1les1
+[root@localhost cent]# cdhRepos/centSfileile1Sales1
+bash: cd: Repos: No such file or directory
+[root@localhost cent]# cd repos
+[root@localhost repos]# ls
+cis246lab1  cis246lab2	cis246lab4
+[root@localhost repos]# cd cis246lab4
+[root@localhost cis246lab4]# ls
+part1.txt  README.md  test.txt
+[root@localhost cis246lab4]# ^C
+[root@localhost cis246lab4]# nanoapart1.txt
+[root@localhosticis246lab4]#ucddcis246lab4-GeEngeEng1les1^H^[[K^H^[[K^H^[[K^H^[[K^H^[[K^H^[[K^H^[[K$[root@localhostocent]#cc^H^[[Kls^H^Hcde/home/cent^H^H^H^H^H^H^H^H^H^H^H^H^HechoS"123"H>ISfile^H^H^H$[root@localhosttSales]#lcdfSales^H^H^H^H^H^H^H^Hls^[[K^H^Hcde/home/cent^H^H^H^H^H^H^H^H^H^H^H^H^Hec$[root@localhosteSales]#ocd)..rfailrtohoperatesrecursivelykont'/'--reference=RFILEenusenRFILE'suownerlandlgroupirather-thanspecifyingcOWNER:GROUPfvalues-R,n--recursiveoperateconnfileseandSdirectoriesSrecursivelyfmsubordinatedgids-W,a--del-subgidslFIRST-LASTnoremovetrangeeoftsubordinateogids-Z,i--selinux-user-SEUSERreatenewmSELinuxiuserumappingofordthecuser-account-create-homedo^not[createEtheHuser's[homeMdirectory-N,r--no-user-groupdohnotecreateoa groupowithttheusame[name^asthe^user^[[KESC^H^H^H$^[[7m Manualrpagedgroupadd(8)0linee38 (presshhlforrhelpooruqtto[quit)^[[27m^[[K^M^[[KC^[[KESC^H^H^H$^[[7m Manualrpagedgroupadd(8)1linee39 (presshhlforrhelpooruqtto[quit)^[[27m^[[K^M^[[KC^[[KESC^H^H^H$^[[7m Manualrpagedgroupadd(8)2linee40 (presshhlforrhelpooruqtto[quit)^[[27m^[[K^M^[[KC^[[KESC^H^H^H$^[[7m Manualrpagedgroupadd(8)3linee41 (presshhlforrhelpooruqtto[quit)^[[27m^[[K^M^[[KC^[[KESC^H^H^H$^[[7m Manualrpagedgroupadd(8)4linee42 (presshhlforrhelpooruqtto[quit)^[[27m^[[K^M^[[KC^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline843l(press hpforshelpoorhqltooquit)^[[27m^[[K^M^[[KK^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline844l(press hpforshelpoorhqltooquit)^[[27m^[[K^M^[[KK^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline845l(press hpforshelpoorhqltooquit)^[[27m^[[K^M^[[KK^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline846l(press hpforshelpoorhqltooquit)^[[27m^[[K^M^[[KK^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline847l(press(hrfor helproreqptorquit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline848l(press(hrfor helproreqptorquit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline849l(press(hrfor helproreqptorquit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline850l(press(hrfor helproreqptorquit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline851l(press(hrfor helproreqptorquit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline852l(press(hrfor helproreqptorquit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline853l(press(hrfor helproreqptorquit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m Manualrpagedgroupadd(8) lines54h(pressehpfor help oriq)to[quit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m Manualrpagedgroupadd(8) lines55h(pressehpfor help oriq)to[quit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m Manualrpagedgroupadd(8) lines56h(pressehpfor help oriq)to[quit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m Manualrpagedgroupadd(8) lines57h(pressehpfor help oriq)to[quit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m Manualrpagedgroupadd(8) lines58h(pressehpfor help oriq)to[quit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m Manualrpagedgroupadd(8) lines59h(pressehpfor help oriq)to[quit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m Manualrpagedgroupadd(8)0linee60 (presshhlforrhelpooruqtto[quit)^[[27m^[[K^M^[[KC^[[KESC^H^H^H$^[[7m Manualrpagedgroupadd(8)1linee61 (presshhlforrhelpooruqtto[quit)^[[27m^[[K^M^[[KC^[[KESC^H^H^H$^[[7m Manualrpagedgroupadd(8)2linee62 (presshhlforrhelpooruqtto[quit)^[[27m^[[K^M^[[KC^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline863l(press(hrfor helproreqptorquit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline864l(press(hrfor helproreqptorquit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline865l(press(hrfor helproreqptorquit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline866l(press(hrfor helproreqptorquit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m[Manual pageagroupadd(8)pline867l(press(hrfor helproreqptorquit)^[[27m^[[K^M^[[K^^[[KESC^H^H^H$^[[7m[Manualnpagepgroupadd(8)dlinel68e(pressehsforfhelpeor qrto quit)^[[27m^[[K^M^[[K[^[[KESC^H^H^H$^[[7mgManualdpagelgroupadd(8)slinef69 (pressrhqfor help)or[q7to[quit)^[[27m^[[K^M^[[KH^[[KESC^H^H^H$^[[7mpManual page groupadd(8) lineh70p(pressth forthelp2or^q[toMquit)^[[27m^[[K^M^[[KM^[[KESC^H^H^H$^[[7m(Manualepage(groupadd(8) line 71 (pressuhtfor[help[or^q^toKquit)^[[27m^[[K^M^[[Ka^[[KESC^H^H^H$^[[7mlManual pagesgroupadd(8)plineq72o(press^h[for^helpMor[q to[quit)^[[27m^[[K^M^[[Ka^[[KESC^H^H^H$^[[7m Manualepage groupadd(8) line 73i(press7h^for^helpKor[qKtoCquit)^[[27m^[[K^M^[[Kg^[[KESC^H^H^H$^[[7m(Manualhpage groupadd(8)olinet74[(press[h^for[help[orSq^toHquit)^[[27m^[[K^M^[[Kp^[[KESC^H^H^H$^[[7mmManual^page^groupadd(8)Hlinep75s(pressrhhfor help or quto)quit)^[[27m^[[K^M^[[KE^[[KESC^H^H^H$^[[7m Manuallpage groupadd(8)[line^76K(press h[forShelpHor2q torquit)^[[27m^[[K^M^[[Ko^[[KESC^H^H^H$^[[7m[ManualKpageHgroupadd(8)slinef77 (pressrhqfor help)or[q7to[quit)^[[27m^[[K^M^[[KH^[[KESC^H^H^H$^[[7mpManualtpageigroupadd(8)Kline[78^(press^h^for2help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 79 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 80 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 81 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 82 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 83 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 84 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 85 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 86 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 87 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 88 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 89 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 90 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 91 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 92 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 93 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 94 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 95 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 96 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 97 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 98 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 99 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^H$^[[7m Manual page groupadd(8) line 100 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^$^[[7m Manual page groupadd(8) line 101 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^$^[[7m Manual page groupadd(8) line 102 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^$^[[7m Manual page groupadd(8) line 103 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^$^[[7m Manual page groupadd(8) line 104 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^$^[[7m Manual page groupadd(8) line 105 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^$^[[7m Manual page groupadd(8) line 106 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^$^[[7m Manual page groupadd(8) line 107 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^$^[[7m Manual page groupadd(8) line 108 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^$^[[7m Manual page groupadd(8) line 109 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^$^[[7m Manual page groupadd(8) line 110 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^$^[[7m Manual page groupadd(8) line 111 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^$^[[7m Manual page groupadd(8) line 112 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^$^[[7m Manual page groupadd(8) line 113 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^$^[[7m Manual page groupadd(8) line 114 (press h for help or q to quit)^[[27m^[[K^M^[[K ^[[KESC^H^H^$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 113/151 99% (press h for help or q to quit)^[[27m^$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 112/151 99% (press h for help or q to quit)^[[27m^$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 111/151 97% (press h for help or q to quit)^[[27m^$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 110/151 95% (press h for help or q to quit)^[[27m^$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 109/151 94% (press h for help or q to quit)^[[27m^$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 108/151 94% (press h for help or q to quit)^[[27m^$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 107/151 94% (press h for help or q to quit)^[[27m^$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 106/151 93% (press h for help or q to quit)^[[27m^$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 105/151 93% (press h for help or q to quit)^[[27m^$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 104/151 93% (press h for help or q to quit)^[[27m^$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 103/151 93% (press h for help or q to quit)^[[27m^$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 102/151 93% (press h for help or q to quit)^[[27m^$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 101/151 92% (press h for help or q to quit)^[[27m^$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 100/151 92% (press h for help or q to quit)^[[27m^$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 99/151 92% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 98/151 91% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 97/151 91% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 96/151 91% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 95/151 91% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 94/151 90% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 93/151 90% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 92/151 90% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 91/151 90% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 90/151 90% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 89/151 89% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 88/151 88% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 87/151 88% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 86/151 87% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 85/151 86% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 84/151 86% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 83/151 85% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 82/151 85% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 81/151 84% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 80/151 84% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 79/151 83% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 78/151 82% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 77/151 80% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 76/151 79% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 75/151 78% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 74/151 78% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 73/151 78% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 72/151 77% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 71/151 77% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 70/151 77% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 69/151 76% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 68/151 76% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 67/151 76% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 66/151 76% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 65/151 75% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 64/151 75% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 63/151 73% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 62/151 73% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 61/151 72% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 60/151 71% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 59/151 69% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 58/151 69% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 57/151 68% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 56/151 67% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 55/151 67% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 54/151 66% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 53/151 66% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 52/151 66% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 51/151 64% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 50/151 63% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 49/151 63% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 48/151 63% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 47/151 61% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 46/151 61% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 45/151 60% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 44/151 58% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 43/151 57% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 42/151 57% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 41/151 56% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 40/151 55% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 39/151 55% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 38/151 53% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 37/151 52% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 36/151 52% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 35/151 51% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 34/151 50% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 33/151 50% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 32/151 49% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 31/151 47% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 30/151 46% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 29/151 44% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 28/151 43% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 27/151 43% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 26/151 42% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 25/151 41% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 24/151 40% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 23/151 40% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 22/151 38% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 21/151 36% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 20/151 36% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 19/151 36% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 18/151 35% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 17/151 35% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 16/151 34% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 15/151 34% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 14/151 33% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 13/151 31% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 12/151 31% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 11/151 31% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 10/151 29% (press h for help or q to quit)^[[27m^[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 9/151 28% (press h for help or q to quit)^[[27m^[[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 8/151 28% (press h for help or q to quit)^[[27m^[[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 7/151 27% (press h for help or q to quit)^[[27m^[[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 6/151 27% (press h for help or q to quit)^[[27m^[[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 5/151 27% (press h for help or q to quit)^[[27m^[[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 4/151 25% (press h for help or q to quit)^[[27m^[[$^[[37;1H^M^[[K^[[7m Manual page groupadd(8) line 1/151 25% (press h for help or q to quit)^[[27m^[[$Usage: useradd [options] LOGINuseradd -Duseradd -D [options]

@@ -1,0 +1,19 @@
+Script started on Tue 17 Nov 2020 07:41:40 PM EST
+[cent@localhost cis246lab4]$ 
+[cent@localhost cis246lab4]$ 
+[cent@localhost cis246lab4]$ ls
+README.md  test.txt
+[cent@localhost cis246lab4]$ cd/[K m[K/media
+[cent@localhost media]$ ls
+AUTORUN.INF  [0m[01;32mrunasroot.sh[0m                       VBoxSolarisAdditions.pkg
+[01;32mautorun.sh[0m   TRANS.TBL                          [01;32mVBoxWindowsAdditions-amd64.exe[0m
+[01;34mcert[0m         VBoxDarwinAdditions.pkg            [01;32mVBoxWindowsAdditions.exe[0m
+[01;34mNT3x[0m         [01;32mVBoxDarwinAdditionsUninstall.tool[0m  [01;32mVBoxWindowsAdditions-x86.exe[0m
+[01;34mOS2[0m          [01;32mVBoxLinuxAdditions.run[0m
+[cent@localhost media]$ cd
+[cent@localhost ~]$ mkdir ~/bin
+[cent@localhost ~]$ cp cleanup ~/bin
+cp: cannot stat ‘cleanup’: No such file or directory
+[cent@localhost ~]$ exit
+
+Script done on Tue 17 Nov 2020 07:54:10 PM EST
